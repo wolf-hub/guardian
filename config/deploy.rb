@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.2"
 
-set :application, "my_app"
+set :application, "myapp"
 set :repo_url, "https://github.com/wolf-hub/guardian.git"
 
 # Deploy to the user's home directory
