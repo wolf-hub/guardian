@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_15_115915) do
+ActiveRecord::Schema.define(version: 2019_12_17_124725) do
 
   create_table "ages", force: :cascade do |t|
     t.date "age"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 2019_12_15_115915) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_ages_on_user_id"
+  end
+
+  create_table "childguardians", force: :cascade do |t|
+    t.string "guardian_name"
+    t.integer "guardian_order"
+    t.integer "user_id"
+    t.integer "child_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["child_id"], name: "index_childguardians_on_child_id"
+    t.index ["user_id"], name: "index_childguardians_on_user_id"
   end
 
   create_table "children", force: :cascade do |t|
@@ -29,6 +40,15 @@ ActiveRecord::Schema.define(version: 2019_12_15_115915) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "create_another"
     t.index ["user_id"], name: "index_children_on_user_id"
+  end
+
+  create_table "custodians", force: :cascade do |t|
+    t.string "custodian_name"
+    t.integer "custodian_order"
+    t.integer "child_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["child_id"], name: "index_custodians_on_child_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -76,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_12_15_115915) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "custodians", "children"
   add_foreign_key "people", "users"
   add_foreign_key "states", "users"
 end
