@@ -1,0 +1,25 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="h1 text-center">
+					Please give us details about your spouse
+				</h1>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-4 text-center">
+				<%= form_with model: @spouse, local: true do |f| %>
+				  <%= f.label :spouse_name, "What is your spouse name?"  %>
+				  <%= f.text_field :spouse_name, class: "form-control", placeholder: "Spouse name" %>
+				  <br/>
+				  <%= f.label :spouse_age, "How old is your spouse?"  %>
+				  <%= f.date_field :spouse_age, class: "form-control" %>
+				  <div class="actions">
+				    <%= f.submit "Next", class: "btn btn-primary" %>
+				  </div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>

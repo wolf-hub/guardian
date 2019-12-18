@@ -1,0 +1,32 @@
+<div class="col-3">
+	<div style="background-color: lightgrey; padding: 5px; border-radius: 5px;">
+		<p style="font-weight: bold;"><%= child.child_name %></p>
+	<p><%= child.child_age %></p>
+	<p><%= child.child_parents %></p>
+	<% if (child.custodians) %>
+		<% if child.custodians.length < 3 %>
+			<div><%= link_to "Add Guardian", new_custodian_path(child), class: "btn btn-primary" %></div>
+		<% end %>
+	<% else %>
+		<div><%= link_to "Add Guardian", new_custodian_path(child), class: "btn btn-primary" %></div>
+	<% end %>	
+
+	<% if child.custodians %>
+	 <% @custodians=child.custodians %>	
+	 <% @custodians.each do |custodian| %>
+   		<% if custodian.custodian_order==1 %>
+   			<div><span style="font-weight: bold;">Primary</span> Guardian is <%= custodian.custodian_name %></div>
+   		<% elsif custodian.custodian_order==2 %>
+   			<div>Backup Guardian is <%= custodian.custodian_name %></div>
+   		<% else %>	
+   			<div>Second Backup Guardian is <%= custodian.custodian_name %></div>
+   		<% end %>
+
+	 <%end %>
+	
+		
+	<% end %>
+	</div>
+	
+
+</div>

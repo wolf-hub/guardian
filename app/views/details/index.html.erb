@@ -1,0 +1,8 @@
+<%=@person.fullname %>
+<%=@state.state %>
+<%=@age.age %>
+<%=@relationship.status %>
+<% if @spouse %>
+	<%= @spouse.spouse_name %>
+	<%= @spouse.spouse_age %>
+<% end %>

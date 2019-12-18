@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Custodian name:</strong>
+  <%= @custodian.custodian_name %>
+</p>
+
+<p>
+  <strong>Custodian order:</strong>
+  <%= @custodian.custodian_order %>
+</p>
+
+<p>
+  <strong>Child:</strong>
+  <%= @custodian.child_id %>
+</p>
+
+<%= link_to 'Edit', edit_custodian_path(@custodian) %> |
+<%= link_to 'Back', custodians_path %>

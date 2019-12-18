@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spouse_name: MyString
+  spouse_age: 2019-12-10
+  user: 
+
+two:
+  spouse_name: MyString
+  spouse_age: 2019-12-10
+  user: 

@@ -1,0 +1,23 @@
+
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="h1 text-center">
+					What is your age?
+				</h1>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-4 text-center">
+				<%= form_with model: @age, local: true do |f| %>
+				  <%= f.date_field :age, class: "form-control" %>
+				  <div class="actions">
+				    <%= f.submit "Next", class: "btn btn-primary" %>
+				  </div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>

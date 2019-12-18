@@ -1,0 +1,25 @@
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="h1 text-center">
+					Hi <%= current_user.person.fullname %> nice to meet you.<br/>
+					Where do you live?
+				</h1>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-4 text-center">
+				<%= form_with model: @state, local: true do |f| %>
+				<%= f.select :state, ["Alaska","Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"],{:prompt => 'Select...'}, {:class => "form-control arrow-select"}  %>
+				<br/>
+				  <div class="actions">
+				    <%= f.submit "Next", class: "btn btn-primary" %>
+				  </div>
+				<% end %>
+			</div>			
+		</div>
+	</div>
+</section>
+

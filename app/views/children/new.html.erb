@@ -1,0 +1,49 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="h1 text-center">
+					Please give us some details about your child
+				</h1>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-4 text-center">
+				<%= form_with model: @child, local: true do |f| %>
+				  <%= f.label :child_name, "Your child full name"  %><br />
+				  <%= f.text_field :child_name, class: "form-control", placeholder: "Child name" %>
+				  <br/>
+				  <%= f.label :child_age, "Your child age"  %>
+				  <%= f.date_field :child_age, class: "form-control" %>
+				  <br/>
+				  <%= f.label :child_parents, "Who are the parents?" %>
+				  <br/>
+				  <%= f.radio_button :child_parents, 'You and spouse' %>
+				  <%= f.label :child_parents, "You and spouse", :value => "You and spouse"  %><br />
+				  <%= f.radio_button :child_parents, 'You and other' %>
+				  <%= f.label :child_parents, "You and other", :value => "You and other"  %><br />
+				  <%= f.radio_button :child_parents, 'Spouse and other' %>
+				  <%= f.label :child_parents, "Spouse and other", :value => "Spouse and other"  %><br />
+				  <%= f.hidden_field :create_another %>
+				  <div style="display: flex; justify-content: space-between;">
+				  	<a href="#" class="btn btn-primary arrow-rt" id="pstep1-btn">Another child</a>			  
+					  <div class="actions">
+					    <%= f.submit "Next", class: "btn btn-primary child-button" %>
+					  </div>
+				  </div>
+				  
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	$('#pstep1-btn').click(function(e){
+	e.preventDefault();
+	console.log('text');
+	console.log($('#child_create_another').val());
+	$('#child_create_another').val('add');
+	console.log($('#child_create_another').val());
+	$('.child-button').click();
+});
+</script>

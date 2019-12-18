@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Custodians</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Custodian name</th>
+      <th>Custodian order</th>
+      <th>Child</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @custodians.each do |custodian| %>
+      <tr>
+        <td><%= custodian.custodian_name %></td>
+        <td><%= custodian.custodian_order %></td>
+        <td><%= custodian.child_id %></td>
+        <td><%= link_to 'Show', custodian %></td>
+        <td><%= link_to 'Edit', edit_custodian_path(custodian) %></td>
+        <td><%= link_to 'Destroy', custodian, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Custodian', new_custodian_path %>

@@ -1,0 +1,34 @@
+
+ <% @child = Child.find(params[:format]) %>
+<% if @child.childguardians %>
+<% @count = @child.childguardians.length %>
+<% else %>
+<% @count = 0 %>
+<% end %> 
+
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<h1 class="text-center">Add guardian for <%= @child.child_name %></h1>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-4 text-center">
+			<%= form_with model: @childguardian, local: true  do |f| %>
+			<%= f.label :guardian_name, "Guardian Fullname"  %><br />
+ 			<%= f.text_field :guardian_name, class: "form-control", placeholder: "Guardian Fullname" %>
+				  <br/>		  
+			<%= f.hidden_field :guardian_order, :value => @count+1 %>
+			<%= f.hidden_field :child, :value => @child %>
+			<div class="actions">
+				<%= f.submit "Next", class: "btn btn-primary" %>
+			</div>
+				  
+				  
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
+

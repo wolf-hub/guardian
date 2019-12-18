@@ -1,0 +1,36 @@
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="h1 text-center">
+					What is your relationship status?
+				</h1>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-4 text-left">
+				<%= form_with model: @relationship, local: true do |f| %>
+				  
+				  <%= f.radio_button :status, 'Married' %>
+				  <%= f.label :status, "Married", :value => "Married"  %><br />
+				  <%= f.radio_button :status, 'Single' %>
+				  <%= f.label :status, "Single", :value => "Single"  %><br />
+				  <%= f.radio_button :status, 'Divorces' %>
+				  <%= f.label :status, "Divorces", :value => "Divorces"  %><br />
+				  <%= f.radio_button :status, 'Widow/Widower' %>
+				  <%= f.label :status, "Widow/Widower", :value => "Widow/Widower"  %><br />
+				  <%= f.radio_button :status, 'Engaged' %>
+				  <%= f.label :status, "Engaged", :value => "Engaged"  %><br />
+				  <%= f.radio_button :status, 'Domestic Partnership' %>
+				  <%= f.label :status, "Domestic Partnership", :value => "Domestic Partnership"  %><br />
+				  <%= f.radio_button :status, 'Civil Union' %>
+				  <%= f.label :status, "Civil Union", :value => "Civil Union"  %>
+				  <div class="actions">
+				    <%= f.submit "Next", class: "btn btn-primary" %>
+				  </div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,3 @@
+class Childguardian < ApplicationRecord
+	
+end
